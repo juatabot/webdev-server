@@ -7,6 +7,5 @@ module.exports = (app) => {
     res.send(service.findStocksForUser(req.params['uid']))
 
   app.get("/api/users/:uid/stocks/", findStocksForUser)
-  // app.post("/api/users/:uid/stocks/")
 
 }

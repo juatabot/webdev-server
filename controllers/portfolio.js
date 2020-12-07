@@ -15,13 +15,13 @@ module.exports = (app) => {
   const createPortfolio = (req, res) =>
     res.send(service.createPortfolio(req.params['uid']))
 
-  const findTradesForPortfolio = (req, res) =>
-    res.send(service.findTradesForPortfolio(req.params['uid'], req.params['pid']))
+  const deletePortfolio = (req, res) =>
+    res.send(service.deletePortfolio(req.params['uid'], req.params['pid']))
 
   app.get("/api/portfolios/", findAllPortfolios)
   app.get("/api/users/:uid/portfolio/", findPortfoliosForUser)
   app.post("/api/users/:uid/portfolio/", updatePortfolioForUser)
   app.post("/api/users/:uid/portfolio", createPortfolio)
-  app.get("/api/users/:uid/portfolio/:pid/trades", findTradesForPortfolio)
+  app.delete("/api/users/:uid/portfolio/:pid", deletePortfolio)
 
 }

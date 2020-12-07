@@ -17,12 +17,12 @@ const createPortfolio = (uid) => {
     return newPortfolio
 }
 
-const findTradesForPortfolio = (uid, pid) => {
-    const userPortfolios = findPortfoliosForUser(uid);
-    const portfolio = userPortfolios.filter(p => p.id === pid)[0];
-    return portfolio.listOfTrades;
+const deletePortfolio = (uid, pid) => {
+    portfolios = portfolios.filter(p => p.userId !== uid && p.pid !== pid)
 }
 
+
+
 module.exports = {
-    findAllPortfolios, findPortfoliosForUser, updatePortfolioForUser, createPortfolio, findTradesForPortfolio
+    findAllPortfolios, findPortfoliosForUser, updatePortfolioForUser, createPortfolio, deletePortfolio
 }
