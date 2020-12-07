@@ -6,7 +6,7 @@ module.exports = (app) => {
   const findStocksForUser = (req, res) =>
     res.send(service.findStocksForUser(req.params['uid']))
 
-  app.get("/api/:uid/stocks/", findStocksForUser)
-  app.post("/api/:uid/stocks/")
+  app.get("/api/users/:uid/stocks/", findStocksForUser)
+  // app.post("/api/users/:uid/stocks/")
 
 }

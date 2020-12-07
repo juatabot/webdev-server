@@ -1,6 +1,7 @@
 [
     {
-        "userId": 1,
+        "id": "1",
+        "userId": "1",
         "portfolioName": "name",
         "description": "description",
         "listOfTrades": [
@@ -10,7 +11,8 @@
         ]
     },
     {
-        "userId": 2,
+        "id": "2",
+        "userId": "2",
         "portfolioName": "name",
         "description": "description",
         "listOfTrades": [
