@@ -1,0 +1,26 @@
+[
+    {
+        "userId": "1",
+        "stockSymbol": "s1",
+        "currentPrice": 1,
+        "sharesAmt": 1
+    },
+    {
+        "userId": "1",
+        "stockSymbol": "s11",
+        "currentPrice": 1,
+        "sharesAmt": 1
+    },
+    {
+        "userId": "2",
+        "stockSymbol": "s2",
+        "currentPrice": 2,
+        "sharesAmt": 2
+    },
+    {
+        "userId": "3",
+        "stockSymbol": "s3",
+        "currentPrice": 3,
+        "sharesAmt": 3
+    }
+]
