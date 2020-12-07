@@ -1,0 +1,22 @@
+[
+    {
+        "userId": 1,
+        "portfolioName": "name",
+        "description": "description",
+        "listOfTrades": [
+            1,
+            2,
+            3
+        ]
+    },
+    {
+        "userId": 2,
+        "portfolioName": "name",
+        "description": "description",
+        "listOfTrades": [
+            1,
+            2,
+            3
+        ]
+    }
+]

@@ -1,4 +1,4 @@
-const service = require("../services/stocks.js")
+const service = require("../services/stocks/stocks.js")
 
 module.exports = (app) => {
 
@@ -7,5 +7,6 @@ module.exports = (app) => {
     res.send(service.findStocksForUser(req.params['uid']))
 
   app.get("/api/:uid/stocks/", findStocksForUser)
+  app.post("/api/:uid/stocks/")
 
 }
