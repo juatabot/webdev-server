@@ -7,7 +7,6 @@ const findAllPortfolios = () => {
 
 const findPortfoliosForUser = (uid) => {
     return db_connector.findPortfoliosForUser();
-    return portfolios.filter(p => p.userId === uid)
 }
 
 const updatePortfolioForUser = (uid, newPortfolio) => {
@@ -20,9 +19,7 @@ const updatePortfolioForUser = (uid, newPortfolio) => {
 }
 
 const createPortfolio = (uid) => {
-    const newPortfolio = { id: (new Date()).getTime() + "", userId: uid }
-    portfolios.push(newPortfolio)
-    return newPortfolio
+    db_connector.createPortfolioForUser(uid);
 }
 
 const deletePortfolio = (uid, pid) => {

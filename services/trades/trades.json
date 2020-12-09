@@ -1,0 +1,13 @@
+[
+    {
+        "id": "1",
+        "userId": "1",
+        "portfolioId": "1",
+        "assetId": 1,
+        "numShares": 10,
+        "unitPrice": 1,
+        "Date": "2020-12-3",
+        "PLATFORM_TYPE": 0,
+        "TRANSACTION_TYPE": "BUY"
+    }
+]
