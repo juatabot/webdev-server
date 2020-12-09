@@ -1,10 +1,12 @@
 let portfolios = require("./portfolio.json")
+let db_connector = require("./portfolio_db")
 
 const findAllPortfolios = () => {
-    return portfolios
+    return db_connector.findAllPortfolios();
 }
 
 const findPortfoliosForUser = (uid) => {
+    return db_connector.findPortfoliosForUser();
     return portfolios.filter(p => p.userId === uid)
 }
 
