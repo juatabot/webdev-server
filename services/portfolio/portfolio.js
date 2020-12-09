@@ -8,8 +8,14 @@ const findPortfoliosForUser = (uid) => {
     return portfolios.filter(p => p.userId === uid)
 }
 
-const updatePortfolioForUser = (uid, newPortfolio) =>
-    portfolios.map(p => newPortfolio.find(np => np.id === p.id) || p);
+const updatePortfolioForUser = (uid, newPortfolio) => {
+    portfolios = portfolios.map((p) => {
+        if (p.id == newPortfolio.id) {
+            return newPortfolio
+        }
+        return p;
+    });
+}
 
 const createPortfolio = (uid) => {
     const newPortfolio = { id: (new Date()).getTime() + "", userId: uid }
