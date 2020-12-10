@@ -2,8 +2,7 @@ CREATE TABLE IF NOT EXISTS portfolio (
   idportfolio INTEGER PRIMARY KEY AUTOINCREMENT,
   userId VARCHAR(45),
   portfolioName VARCHAR(45),
-  portfolioDescription VARCHAR(45),
-  listOfTrades VARCHAR(45)
+  portfolioDescription VARCHAR(45)
 );
 
 CREATE TABLE IF NOT EXISTS stock (

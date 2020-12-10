@@ -50,12 +50,11 @@ const deletePortfolio = (pid) => {
 }
 
 const updatePortfolio = (pid, body) => {
-    const query = `UPDATE portfolio SET portfolioName = $name, description = $description, listOfTrades = $listOfTrades WHERE portfolio.idportfolio = ${pid}`;
+    const query = `UPDATE portfolio SET portfolioName = $name, description = $description WHERE portfolio.idportfolio = ${pid}`;
     return new Promise((resolve) => {
         db.run(query, {
             $name: body.portfolioName,
             $description: body.portfolioDescription,
-            $listOfTrades: body.listOfTrades
         }, (err, rows) => {
             if (err) {
                 throw err;

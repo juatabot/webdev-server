@@ -4,87 +4,59 @@
 * GET `/api/portfolios`  
  Returns all portfolios
 
-* GET `/api/users/:uid/portfolio`  
+* GET `/api/users/:uid/portfolios`  
  Returns portfolio for given user id
 
-* POST `/api/users/:uid/portfolio`  
+* POST `/api/portfolios/:pid`  
 	Body:     `{
-        "id": "1",
-        "userId": "1",
         "portfolioName": "name",
         "description": "description",
-        "listOfTrades": [
-            1,
-            2,
-            3
-        ]
     }`  
 Updates portfolio with given user id and portfolio id with request body
 
-* POST `/api/users/:uid/portfolio`   
-	Body:     `{
-        "id": "1",
-        "userId": "1",
-        "portfolioName": "name",
-        "description": "description",
-        "listOfTrades": [
-            1,
-            2,
-            3
-        ]
-    }`   
- Create portfolio for given user id with given portfolio
+* PUT `/api/users/:uid/portfolios`  
+ Create portfolio for given user id
  
- * DELETE `'api/users/:uid/portfolio:pid`   
-  Delete portfolio with given user id and portfolio id
+ * DELETE `'api/portfolio/:pid`   
+  Delete portfolio with given portfolio id
   
 **Trade**
 
-* GET `/api/users/:uid/portfolio/:id/trades`  
-Find trades for given user id in given portfolio id
+* GET `/api/users/:uid/trades`  
+Find trades for given user id
 
-* POST `'/api/users/:uid/portfolio/:pid/trades/:tid`
-Body: `    {
-        "id": "1",
-        "userId": "1",
-        "portfolioId": "1",
-        "assetId": 1,
-        "numShares": 10,
-        "unitPrice": 1,
-        "Date": "2020-12-3",
-        "PLATFORM_TYPE": 0,
-        "TRANSACTION_TYPE": "BUY"
-    }`  
-  Updates trade for given trade id for given user id in given portfolio id with request body
+* PUT `/api/users/:uid/trades` 
+  Creates trade for given user
+
+* POST `/api/trades/:tid`
+  Body `    {
+            portfolioId: "1",
+            stockId: "1",
+            tradeDate: "2020-1-02",
+            platformType: "??",
+            transactionType: "BUY"
+    }` 
+  Update trade with given trade id and body
   
-* DELETE `/api/users/:uid/portfolio/:pid/trades/:tid`
-Deletes trade for given trade id for given user id in given portfolio id
+* DELETE `/api/trades/:tid`
+  Deletes trade for given trade id
 
 **Stocks**
 
 * GET `/api/users/:uid/stocks`  
-Finds stocks for given user id
+  Finds stocks for given user id
+
+* PUT `/api/users/:uid/stocks`    
+  Create stock for given user id
 
 * POST `/api/users/:uid/stocks`  
-Body `    {
-		"id": "1",
-        "userId": "1",
-        "stockSymbol": "s1",
-        "currentPrice": 1,
-        "sharesAmt": 1
-    }`  
-Create stock for given user id
-
-* POST `/api/users/:uid/stocks`  
-Body `    {
-        "id": "1",
-        "userId": "3",
+  Body `    {
         "stockSymbol": "s3",
         "currentPrice": 3,
         "sharesAmt": 3
     }`  
- Updates stock for given user id with request body
+ Updates stock for given stock id with request body
 
-* DELETE `/api/users/:uid/stocks/:sid`  
-Delete stock for given user with given stock id
+* DELETE `/api/stocks/:sid`  
+  Delete stock with given stock id
 
