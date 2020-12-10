@@ -2,32 +2,43 @@ let portfolios = require("./portfolio.json")
 let db_connector = require("./portfolio_db")
 
 const findAllPortfolios = () => {
-    return db_connector.findAllPortfolios();
+    return new Promise((resolve) => {
+        db_connector.findAllPortfolios()
+            .then(resp => resolve(resp))
+    })
 }
+
 
 const findPortfoliosForUser = (uid) => {
-    return db_connector.findPortfoliosForUser();
+    return new Promise((resolve) => {
+        db_connector.findPortfoliosForUser(uid)
+            .then(resp => resolve(resp))
+    })
 }
 
-const updatePortfolioForUser = (uid, newPortfolio) => {
-    portfolios = portfolios.map((p) => {
-        if (p.id == newPortfolio.id) {
-            return newPortfolio
-        }
-        return p;
-    });
+const updatePortfolio = (pid, body) => {
+    return new Promise((resolve) => {
+        db_connector.updatePortfolio(pid, body)
+            .then(resp => resolve(resp))
+    })
 }
 
 const createPortfolio = (uid) => {
-    db_connector.createPortfolioForUser(uid);
+    return new Promise((resolve) => {
+        db_connector.createPortfolioForUser(uid)
+            .then(resp => resolve(resp))
+    })
 }
 
-const deletePortfolio = (uid, pid) => {
-    portfolios = portfolios.filter(p => p.userId !== uid && p.pid !== pid)
+const deletePortfolio = (pid) => {
+    return new Promise((resolve) => {
+        db_connector.deletePortfolio(pid)
+            .then(resp => resolve(resp))
+    })
 }
 
 
 
 module.exports = {
-    findAllPortfolios, findPortfoliosForUser, updatePortfolioForUser, createPortfolio, deletePortfolio
+    findAllPortfolios, findPortfoliosForUser, updatePortfolio, createPortfolio, deletePortfolio
 }

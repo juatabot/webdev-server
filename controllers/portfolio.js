@@ -1,27 +1,29 @@
-const service = require("../services/portfolio/portfolio.js")
+const service = require("../services/portfolio/portfolio.js");
+const { updatePortfolio } = require("../services/portfolio/portfolio_db.js");
 
 module.exports = (app) => {
 
 
   const findAllPortfolios = (req, res) =>
-    res.send(service.findAllPortfolios())
+    service.findAllPortfolios().then(resp => { res.send(resp) });
 
   const findPortfoliosForUser = (req, res) =>
-    res.send(service.findPortfoliosForUser(req.params['uid']))
+    service.findPortfoliosForUser(req.params['uid']).then(resp => { res.send(resp) });
 
-  const updatePortfolioForUser = (req, res) =>
-    res.send(service.updatePortfolioForUser(req.params['uid'], req.body))
+  const updatePortfolio = (req, res) =>
+    service.updatePortfolio(req.params['pid'], req.body).then(resp => { res.send(resp) });
+
 
   const createPortfolio = (req, res) =>
-    res.send(service.createPortfolio(req.params['uid']))
+    service.createPortfolio(req.params['uid']).then(resp => { res.send(resp) });
 
   const deletePortfolio = (req, res) =>
-    res.send(service.deletePortfolio(req.params['uid'], req.params['pid']))
+    service.deletePortfolio(req.params['pid']).then(resp => { res.send(resp) });
 
   app.get("/api/portfolios/", findAllPortfolios)
-  app.get("/api/users/:uid/portfolio/", findPortfoliosForUser)
-  app.post("/api/users/:uid/portfolio/", updatePortfolioForUser)
-  app.post("/api/users/:uid/portfolio", createPortfolio)
-  app.delete("/api/users/:uid/portfolio/:pid", deletePortfolio)
+  app.get("/api/users/:uid/portfolios", findPortfoliosForUser)
+  app.put("/api/portfolios/:pid", updatePortfolio)
+  app.post("/api/users/:uid/portfolios", createPortfolio)
+  app.delete("/api/portfolios/:pid", deletePortfolio)
 
 }
