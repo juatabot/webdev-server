@@ -18,8 +18,7 @@ CREATE TABLE IF NOT EXISTS trade (
   idtrade INTEGER PRIMARY KEY AUTOINCREMENT,
   userId VARCHAR(45),
   portfolioId VARCHAR(45),
-  numShares VARCHAR(45),
-  unitPrice VARCHAR(45),
+  stockID VARCHAR(45),
   tradeDate VARCHAR(45),
   platformType VARCHAR(45),
   transactionType VARCHAR(45)

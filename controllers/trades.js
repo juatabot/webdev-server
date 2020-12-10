@@ -2,16 +2,20 @@
 const service = require("../services/trades/trades.js")
 
 module.exports = (app) => {
-    const findTradesForPortfolio = (req, res) =>
-        res.send(service.findTradesForPortfolio(req.params['uid'], req.params['pid']))
+    const findTradesForUser = (req, res) =>
+        service.findTradesForUser(req.params['uid']).then(resp => { res.send(resp) });
 
-    const updateTradeForPortfolio = (req, res) =>
-        res.send(service.updateTradeForPortfolio(req.params['uid'], req.params['pid'], req.params['tid'], req.body))
+    const createTradeForUser = (req, res) =>
+        service.createTradeForUser(req.params['uid']).then(resp => { res.send(resp) });
+
+    const updateTradeById = (req, res) =>
+        service.updateTradeById(req.params['tid'], req.body).then(resp => { res.send(resp) });
 
     const deleteTradeById = (req, res) =>
-        res.send(service.deleteTradeByIdreq.params['uid'], req.params['pid'], req.params['tid'])
+        service.deleteTradeById(req.params['tid']).then(resp => { res.send(resp) });
 
-    app.get("/api/users/:uid/portfolio/:pid/trades", findTradesForPortfolio)
-    app.post("/api/users/:uid/portfolio/:pid/trades/:tid", updateTradeForPortfolio)
-    app.delete("/api/users/:uid/portfolio/:pid/trades/:tid", deleteTradeById)
+    app.get("/api/users/:uid/trades", findTradesForUser)
+    app.put("/api/users/:uid/trades", createTradeForUser)
+    app.post("/api/trades/:tid", updateTradeById)
+    app.delete("/api/trades/:tid", deleteTradeById)
 }

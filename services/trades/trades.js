@@ -1,22 +1,33 @@
-let trades = require("./trades.json")
+let db_connector = require("./trades_db.js")
 
-const findTradesForPortfolio = (uid, pid) => {
-    return trades.filter(t => t.portfolioId === pid)
+const findTradesForUser = (uid) => {
+    return new Promise((resolve) => {
+        db_connector.findTradesForUser(uid)
+            .then(resp => resolve(resp))
+    })
 }
 
-const updateTradeForPortfolio = (uid, pid, tid, newTrade) => {
-    trades = trades.map((t) => {
-        if (t.id == newTrade.id) {
-            return newTrade
-        }
-        return t;
-    });
+const createTradeForUser = (uid) => {
+    return new Promise((resolve) => {
+        db_connector.createTradeForUser(uid)
+            .then(resp => resolve(resp))
+    })
 }
 
-const deleteTradeById = (uid, pid, tid) => {
-    trades = trades.filter(t => t.id !== tid)
+const updateTradeById = (tid, body) => {
+    return new Promise((resolve) => {
+        db_connector.updateTradeById(tid, body)
+            .then(resp => resolve(resp))
+    })
+}
+
+const deleteTradeById = (tid) => {
+    return new Promise((resolve) => {
+        db_connector.deleteTradeById(tid, body)
+            .then(resp => resolve(resp))
+    })
 }
 
 module.exports = {
-    findTradesForPortfolio, updateTradeForPortfolio, deleteTradeById
+    findTradesForUser, createTradeForUser, updateTradeById, deleteTradeById
 }
