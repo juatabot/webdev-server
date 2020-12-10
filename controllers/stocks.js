@@ -2,22 +2,21 @@ const service = require("../services/stocks/stocks.js")
 
 module.exports = (app) => {
 
-
   const findStocksForUser = (req, res) =>
-    res.send(service.findStocksForUser(req.params['uid']))
+    service.findStocksForUser(req.params['sid']).then(resp => { res.send(resp) });
 
   const createStockForUser = (req, res) =>
-    res.send(service.createStockForUser(req.params['uid'], req.body))
+    service.createStockForUser(req.params['sid']).then(resp => { res.send(resp) });
 
-  const updateStockForUser = (req, res) =>
-    res.send(service.updateStockForUser(req.params['uid'], req.body))
+  const updateStockById = (req, res) =>
+    service.updateStockForUser(req.params['sid'], req.body).then(resp => { res.send(resp) });
 
-  const deleteStockForUser = (req, res) =>
-    res.send(service.deleteStockForUser(req.parms['uid'], req.params['sid']))
+  const deleteStockById = (req, res) =>
+    service.deleteStockForUser(req.params['sid']).then(resp => { res.send(resp) });
 
   app.get("/api/users/:uid/stocks/", findStocksForUser)
-  app.post("/api/users/:uid/stocks", createStockForUser)
-  app.post("/api/users/:uid/stocks/", updateStockForUser)
-  app.delete("/api/users/:uid/stocks/:sid", deleteStockForUser)
+  app.put("/api/users/:uid/stocks", createStockForUser)
+  app.post("/api/stocks/:sid", updateStockById)
+  app.delete("/api/stocks/:sid", deleteStockById)
 
 }

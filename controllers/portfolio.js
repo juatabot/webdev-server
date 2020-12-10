@@ -1,8 +1,5 @@
 const service = require("../services/portfolio/portfolio.js");
-const { updatePortfolio } = require("../services/portfolio/portfolio_db.js");
-
 module.exports = (app) => {
-
 
   const findAllPortfolios = (req, res) =>
     service.findAllPortfolios().then(resp => { res.send(resp) });

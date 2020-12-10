@@ -1,23 +1,34 @@
 let stocks = require("./stocks.json")
+let db_connector = require("./stocks_db.js")
 
-const findStocksForUser = (uid) =>
-  stocks.filter(s => s.userId === uid)
+const findStocksForUser = (uid) => {
+  return new Promise((resolve) => {
+    db_connector.findStocksForUser(uid)
+      .then(resp => resolve(resp))
+  })
+}
 
-const createStockForUser = (uid, newStock) =>
-  stocks.push(newStock);
+const createStockForUser = (uid) => {
+  return new Promise((resolve) => {
+    db_connector.createStockForUser(uid)
+      .then(resp => resolve(resp))
+  })
+}
 
-const updateStockForUser = (uid, updatedStock) =>
-  stocks = stocks.map((s) => {
-    if (s.id == updatedStock.id) {
-      return updatedStock
-    }
-    return s;
-  });
+const updateStockById = (sid, body) => {
+  return new Promise((resolve) => {
+    db_connector.updateStockById(sid, body)
+      .then(resp => resolve(resp))
+  })
+}
 
-const deleteStockForUser = (uid, sid) =>
-  stocks = stocks.filter(s => s.userId !== uid && s.id !== sid)
-
+const deleteStockById = (sid) => {
+  return new Promise((resolve) => {
+    db_connector.deleteStockById(sid, body)
+      .then(resp => resolve(resp))
+  })
+}
 
 module.exports = {
-  findStocksForUser, createStockForUser, updateStockForUser, deleteStockForUser
+  findStocksForUser, createStockForUser, updateStockById, deleteStockById
 }

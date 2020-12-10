@@ -1,4 +1,4 @@
-CREATE TABLE portfolio (
+CREATE TABLE IF NOT EXISTS portfolio (
   idportfolio INTEGER PRIMARY KEY AUTOINCREMENT,
   userId VARCHAR(45),
   portfolioName VARCHAR(45),
@@ -6,7 +6,7 @@ CREATE TABLE portfolio (
   listOfTrades VARCHAR(45)
 );
 
-CREATE TABLE stock (
+CREATE TABLE IF NOT EXISTS stock (
   idstock INTEGER PRIMARY KEY AUTOINCREMENT,
   userId VARCHAR(45),
   stockSymbol VARCHAR(45),
@@ -14,7 +14,7 @@ CREATE TABLE stock (
   sharesAmt VARCHAR(45)
 );
 
-CREATE TABLE trade (
+CREATE TABLE IF NOT EXISTS trade (
   idtrade INTEGER PRIMARY KEY AUTOINCREMENT,
   userId VARCHAR(45),
   portfolioId VARCHAR(45),
