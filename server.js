@@ -15,6 +15,17 @@ app.use(
   })
 );
 
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin',
+    'http://localhost:4200');
+  res.header('Access-Control-Allow-Headers',
+    'Content-Type, X-Requested-With, Origin');
+  res.header('Access-Control-Allow-Methods',
+    'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
 app.use(session({
   resave: false,
   saveUninitialized: true,
@@ -25,5 +36,6 @@ require("./controllers/stocks.js")(app)
 require("./controllers/portfolio.js")(app)
 require("./controllers/trades.js")(app)
 require("./controllers/session.js")(app)
+require("./controllers/login.js")(app)
 
 app.listen(3000)
