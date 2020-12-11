@@ -1,10 +1,10 @@
-const express = require("express")
-const fetch = require("node-fetch");
-const app = express()
-var bodyParser = require("body-parser");
+const express = require("express");
+const app = express();
+const session = require('express-session');
+const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const cors = require("cors");
 
@@ -15,8 +15,15 @@ app.use(
   })
 );
 
+app.use(session({
+  resave: false,
+  saveUninitialized: true,
+  secret: 'secret'
+}));
+
 require("./controllers/stocks.js")(app)
 require("./controllers/portfolio.js")(app)
 require("./controllers/trades.js")(app)
+require("./controllers/session.js")(app)
 
 app.listen(3000)
