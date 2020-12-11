@@ -35,10 +35,10 @@ Find trades for given user id
             tradeDate: "2020-1-02",
             platformType: "??",
             transactionType: "BUY"
-    }` 
+    }`   
   Update trade with given trade id and body
   
-* DELETE `/api/trades/:tid`
+* DELETE `/api/trades/:tid`  
   Deletes trade for given trade id
 
 **Stocks**
