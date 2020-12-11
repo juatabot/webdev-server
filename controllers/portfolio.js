@@ -7,9 +7,9 @@ module.exports = (app) => {
   const findPortfoliosForUser = (req, res) =>
     service.findPortfoliosForUser(req.params['uid']).then(resp => { res.send(resp) });
 
-  const updatePortfolio = (req, res) =>
+  const updatePortfolio = (req, res) => {
     service.updatePortfolio(req.params['pid'], req.body).then(resp => { res.send(resp) });
-
+    }
 
   const createPortfolio = (req, res) =>
     service.createPortfolio(req.params['uid']).then(resp => { res.send(resp) });

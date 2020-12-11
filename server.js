@@ -1,6 +1,10 @@
 const express = require("express")
 const fetch = require("node-fetch");
 const app = express()
+var bodyParser = require("body-parser");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 const cors = require("cors");
 
