@@ -25,7 +25,7 @@ Updates portfolio with given user id and portfolio id with request body
 * GET `/api/users/:uid/trades`  
 Find trades for given user id
 
-* PUT `/api/users/:uid/trades` 
+* PUT `/api/users/:uid/trades`   
   Creates trade for given user
 
 * POST `/api/trades/:tid`
