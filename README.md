@@ -1,3 +1,23 @@
+** Login/Register**
+* POST `/api/login`
+  Body:   `{
+        "username": "name",
+        "pwd": "my_password",
+    }`  
+ Login to session and return userId
+
+* POST `/api/register`
+  Body:   `{
+        "username": "name",
+        "pwd": "my_password",
+    }`  
+ Register new user
+
+* POST `/api/currentUser`
+ Return current user
+
+* POST `/api/logout`
+ Logout
 
 **Portfolio**
 
