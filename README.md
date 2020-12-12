@@ -1,4 +1,4 @@
-** Login/Register**
+**Login/Register**
 * POST `/api/login`  
   Body:   `{
         "username": "name",
