@@ -19,7 +19,7 @@ const register = (body) => {
 }
 
 const findUserByCredentials = (body) => {
-    const query = `SELECT * FROM user WHERE user.username = ${body.username} AND user.pwd = ${body.pwd}`;
+    const query = `SELECT * FROM user WHERE user.username = "${body.username}" AND user.pwd = "${body.pwd}"`;
     return new Promise((resolve) => {
         db.all(query, [], (err, rows) => {
             if (err) {
