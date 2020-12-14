@@ -8,13 +8,18 @@ const register = (body) => {
                 throw err;
             }
             // Return ID of object inserted!!!
-            resolve("Created new user");
+            if (result) {
+                resolve({ "status": 1 });
+            }
+            else {
+                resolve({ "status": 0 });
+            }
         });
     })
 }
 
 const findUserByCredentials = (body) => {
-    const query = `SELECT * FROM user WHERE user.username = "${body.username}" AND user.pwd = "${body.pwd}"`;
+    const query = `SELECT * FROM user WHERE user.username = ${body.username} AND user.pwd = ${body.pwd}`;
     return new Promise((resolve) => {
         db.all(query, [], (err, rows) => {
             if (err) {
