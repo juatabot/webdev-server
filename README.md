@@ -4,7 +4,7 @@
         "username": "name",
         "pwd": "my_password",
     }`  
- Login to session and return userId
+ Login and return user if exists
 
 * POST `/api/register`  
   Body:   `{
