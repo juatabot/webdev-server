@@ -8,7 +8,7 @@ const register = (body) => {
                 throw err;
             }
             // Return ID of object inserted!!!
-            resolve(result);
+            resolve("Created new user");
         });
     })
 }
