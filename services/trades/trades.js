@@ -23,7 +23,7 @@ const updateTradeById = (tid, body) => {
 
 const deleteTradeById = (tid) => {
     return new Promise((resolve) => {
-        db_connector.deleteTradeById(tid, body)
+        db_connector.deleteTradeById(tid)
             .then(resp => resolve(resp))
     })
 }

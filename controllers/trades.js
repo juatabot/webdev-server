@@ -15,7 +15,7 @@ module.exports = (app) => {
         service.deleteTradeById(req.params['tid']).then(resp => { res.send(resp) });
 
     app.get("/api/users/:uid/trades", findTradesForUser)
-    app.put("/api/users/:uid/trades", createTradeForUser)
-    app.post("/api/trades/:tid", updateTradeById)
+    app.post("/api/users/:uid/trades", createTradeForUser)
+    app.put("/api/trades/:tid", updateTradeById)
     app.delete("/api/trades/:tid", deleteTradeById)
 }

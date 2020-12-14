@@ -13,7 +13,7 @@ const findTradesForUser = (uid) => {
 }
 
 const createTradeForUser = (uid) => {
-    const query = `INSERT INTO trade (userId) VALUES (${uid})`;
+    const query = `INSERT INTO trade (userId) VALUES ("${uid}")`;
     return new Promise((resolve) => {
         db.run(query, [], (result, err) => {
             if (err) {

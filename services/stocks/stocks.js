@@ -24,11 +24,18 @@ const updateStockById = (sid, body) => {
 
 const deleteStockById = (sid) => {
   return new Promise((resolve) => {
-    db_connector.deleteStockById(sid, body)
+    db_connector.deleteStockById(sid)
+      .then(resp => resolve(resp))
+  })
+}
+
+const findUsersByStock = (ss) => {
+  return new Promise((resolve) => {
+    db_connector.findUsersByStock(ss)
       .then(resp => resolve(resp))
   })
 }
 
 module.exports = {
-  findStocksForUser, createStockForUser, updateStockById, deleteStockById
+  findStocksForUser, createStockForUser, updateStockById, deleteStockById, findUsersByStock
 }

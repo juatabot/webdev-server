@@ -25,7 +25,7 @@ const findPortfoliosForUser = (uid) => {
 }
 
 const createPortfolioForUser = (uid) => {
-    const query = `INSERT INTO portfolio (userId) VALUES (${uid})`;
+    const query = `INSERT INTO portfolio (userId) VALUES ("${uid}")`;
     return new Promise((resolve) => {
         db.run(query, [], (result, err) => {
             if (err) {

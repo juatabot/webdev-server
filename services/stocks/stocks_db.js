@@ -1,7 +1,7 @@
 const db = require('../../db.js')
 
-const findStocksForUser = (sid) => {
-    const query = `SELECT * FROM stock WHERE idStock = ${sid}`;
+const findStocksForUser = (uid) => {
+    const query = `SELECT * FROM stock WHERE stock.userId = ${uid}`;
     return new Promise((resolve) => {
         db.all(query, [], (err, rows) => {
             if (err) {
@@ -13,7 +13,8 @@ const findStocksForUser = (sid) => {
 }
 
 const createStockForUser = (sid) => {
-    const query = `INSERT INTO stock (userId) VALUES (${sid})`;
+    const query = `INSERT INTO stock (userId) VALUES ("${sid}")`;
+    console.log(query)
     return new Promise((resolve) => {
         db.run(query, [], (result, err) => {
             if (err) {
@@ -53,6 +54,20 @@ const deleteStockById = (sid) => {
     })
 }
 
+const findUsersByStock = (ss) => {
+    const query = `SELECT stock.userId FROM stock WHERE stock.stockSymbol = "${ss}"`;
+    console.log(query)
+    return new Promise((resolve) => {
+        db.all(query, [], (err, rows) => {
+            if (err) {
+                throw err;
+            }
+            resolve(rows);
+        });
+    })
+
+}
+
 module.exports = {
-    findStocksForUser, createStockForUser, updateStockById, deleteStockById
+    findStocksForUser, createStockForUser, updateStockById, deleteStockById, findUsersByStock
 }
