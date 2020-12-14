@@ -1,12 +1,12 @@
-** Login/Register**
-* POST `/api/login`
+**Login/Register**
+* POST `/api/login`  
   Body:   `{
         "username": "name",
         "pwd": "my_password",
     }`  
  Login to session and return userId
 
-* POST `/api/register`
+* POST `/api/register`  
   Body:   `{
         "username": "name",
         "pwd": "my_password",
