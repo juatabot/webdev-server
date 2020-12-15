@@ -1,5 +1,5 @@
 To run  
-`apt install sqlite3` (?)
+`apt install sqlite3` (?)  
 `npm install`  
 `node server.js`  
 
