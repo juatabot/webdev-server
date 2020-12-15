@@ -30,6 +30,6 @@ require("./controllers/portfolio.js")(app)
 require("./controllers/trades.js")(app)
 require("./controllers/session.js")(app)
 require("./controllers/login.js")(app)
-//require("./controllers/users.js")(app)
+require("./controllers/users.js")(app)
 
 app.listen(3000)
