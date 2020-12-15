@@ -8,13 +8,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const cors = require("cors");
 
-app.use(
-  cors({
-    origin: "http://localhost:4200", // restrict calls to those this address
-    methods: "GET, POST, PUT, DELETE" // only allow GET requests
-  })
-);
-
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin',
     'http://localhost:4200');
@@ -37,6 +30,6 @@ require("./controllers/portfolio.js")(app)
 require("./controllers/trades.js")(app)
 require("./controllers/session.js")(app)
 require("./controllers/login.js")(app)
-require("./controllers/users.js")(app)
+//require("./controllers/users.js")(app)
 
 app.listen(3000)
