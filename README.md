@@ -1,6 +1,10 @@
 To run
-`npm install`
-`node server.js`
+`npm install`  
+`node server.js`  
+
+Front end  
+`ng serve --open`  
+`ng serve`
 
 
 API documentation is outdated.
