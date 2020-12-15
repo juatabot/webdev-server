@@ -10,8 +10,11 @@ module.exports = (app) => {
             .then(resp => { res.send(resp) })
     }
 
-    const currentUser = (req, res) =>
+    const currentUser = (req, res) => {
+        console.log(req.session["currentUser"])
         res.json(req.session["currentUser"])
+
+    }
 
     const logout = (req, res) => {
         req.session.destroy()
