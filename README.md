@@ -1,3 +1,16 @@
+To run  
+`apt install sqlite3` (?)  
+`npm install`  
+`node server.js`  
+
+Front end  
+`ng serve --open`  
+`ng serve`
+
+
+API documentation is outdated.
+
+
 **Login/Register**
 * POST `/api/login`  
   Body:   `{
