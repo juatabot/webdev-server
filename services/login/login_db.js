@@ -12,7 +12,7 @@ const register = (body) => {
                 resolve({ "status": 1 });
             }
             else {
-                resolve({ "status": 0 });
+                resolve({ "status": 0 , "username": body.username});
             }
         });
     })
@@ -29,5 +29,7 @@ const findUserByCredentials = (body) => {
         });
     })
 }
+
+
 
 module.exports = { register, findUserByCredentials }
