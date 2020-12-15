@@ -1,3 +1,11 @@
+To run
+`npm install`
+`node server.js`
+
+
+API documentation is outdated.
+
+
 **Login/Register**
 * POST `/api/login`  
   Body:   `{
