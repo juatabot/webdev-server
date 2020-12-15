@@ -1,9 +1,13 @@
 const service = require("../services/login/login_db.js")
 module.exports = (app) => {
+
     const register = (req, res) => {
         service.register(req.body)
-            .then(resp => { res.send(resp) })
+            .then(actualUser => {req.session['currentUser'] = actualUser
+                                 res.json(actualUser)
+                                })
     }
+
 
     const login = (req, res) => {
         service.findUserByCredentials(req.body)
