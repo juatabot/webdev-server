@@ -11,7 +11,9 @@ module.exports = (app) => {
 
     const login = (req, res) => {
         service.findUserByCredentials(req.body)
-            .then(resp => { res.send(resp) })
+            .then(actualUser => {req.session['currentUser'] = actualUser
+                                             res.json(actualUser)
+                                            })
     }
 
     const currentUser = (req, res) => {
